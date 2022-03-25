@@ -1,16 +1,12 @@
-#Specify the version being used aswell as the language
-cmake_minimum_required(VERSION 3.8)
-#Name your project here
-project(threading_ex)
-find_package(Threads REQUIRED)
+cmake_minimum_required(VERSION 3.0.0)
+project(pthread VERSION 0.1.0)
 
-#Sends the -std=c99 flag to the gcc compiler
-#add_definitions(-std=c++11)
-#This tells CMake to fib.c and name it fibonacci
+# include_directories(source)
+include(CTest)
+enable_testing()
 
-add_executable(threading_func threading_func.cpp )
-target_link_libraries(threading_func Threads::Threads)
+add_executable(pthread main.cpp)
 
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)
